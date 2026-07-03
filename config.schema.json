@@ -1,0 +1,23 @@
+{
+  "pluginAlias": "SwitchToShell",
+  "pluginType": "accessory",
+  "schema": {
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "placeholder": "Name"
+    },
+    "latch": {
+      "title": "Latch",
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "command": {
+      "title": "Command",
+      "type": "number",
+      "placeholder": "curl https://one.one.one.one/",
+      "required": true
+    }
+  }
+}
