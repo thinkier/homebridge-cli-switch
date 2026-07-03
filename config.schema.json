@@ -13,11 +13,20 @@
       "default": false,
       "required": true
     },
-    "command": {
-      "title": "Command",
+    "onCommand": {
+      "title": "On Command",
       "type": "number",
       "placeholder": "curl https://one.one.one.one/",
       "required": true
+    },
+    "offCommand": {
+      "title": "Off Command",
+      "type": "number",
+      "placeholder": "sudo poweroff",
+      "required": false,
+      "condition": {
+        "functionBody": "return model.latch === true;"
+      }
     }
   }
 }

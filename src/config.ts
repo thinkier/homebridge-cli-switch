@@ -2,5 +2,6 @@ import {AccessoryConfig} from "homebridge";
 
 export interface Config extends AccessoryConfig {
     latch: boolean,
-    command: string
+    onCommand: string
+    offCommand?: string
 }
