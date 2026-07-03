@@ -7,10 +7,22 @@
       "type": "string",
       "placeholder": "Name"
     },
+    "shell": {
+      "title": "Shell Interpreter",
+      "type": "string",
+      "required": true,
+      "default": "bash"
+    },
     "latch": {
       "title": "Latch",
       "type": "boolean",
       "default": false,
+      "required": true
+    },
+    "timeout": {
+      "title": "Timeout (ms)",
+      "type": "number",
+      "default": 1000,
       "required": true
     },
     "onCommand": {
