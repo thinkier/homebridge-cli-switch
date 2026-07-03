@@ -20,7 +20,7 @@ class SwitchToShell implements AccessoryPlugin {
 
     private readonly switchService: Service = new hap.Service.Switch();
 
-    private state: boolean = false;
+    private value: boolean = false;
 
     constructor(private readonly log: Logging, private readonly config: Config, api: API) {
         this.informationService = new hap.Service.AccessoryInformation()
@@ -28,16 +28,17 @@ class SwitchToShell implements AccessoryPlugin {
 
         const chOn = this.switchService.getCharacteristic(hap.Characteristic.On);
         chOn.onGet(() => {
-            return this.state;
+            return this.value;
         });
         chOn.onSet((value: boolean) => {
+            this.value = value;
             this.runCommand(value);
 
-            // Force push the current state if we do not latch here.
-            if (this.config.latch) {
-                this.state = value;
-            } else {
-                chOn.updateValue(this.state);
+            // Force push the off state if we do not latch here.
+            if (!this.config.latch) {
+                setImmediate(() => {
+                    chOn.updateValue(false);
+                });
             }
         })
     }

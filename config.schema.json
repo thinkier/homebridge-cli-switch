@@ -27,13 +27,13 @@
     },
     "onCommand": {
       "title": "On Command",
-      "type": "number",
+      "type": "string",
       "placeholder": "curl https://one.one.one.one/",
       "required": true
     },
     "offCommand": {
       "title": "Off Command",
-      "type": "number",
+      "type": "string",
       "placeholder": "sudo poweroff",
       "required": false,
       "condition": {
